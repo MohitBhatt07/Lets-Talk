@@ -1,7 +1,7 @@
-import Chat from '../models/chatModel.js';
-import user from '../models/userModel.js';
+const Chat = require('../models/chatModel.js');
+const user = require('../models/userModel.js');
 
-export const accessChats = async (req, res) => {
+const accessChats = async (req, res) => {
   const { userId } = req.body;
   if (!userId) res.send({ message: "Provide User's Id" });
   let chatExists = await Chat.find({
@@ -37,7 +37,9 @@ export const accessChats = async (req, res) => {
     }
   }
 };
-export const fetchAllChats = async (req, res) => {
+
+
+const fetchAllChats = async (req, res) => {
   try {
     const chats = await Chat.find({
       users: { $elemMatch: { $eq: req.rootUserId } },
@@ -56,7 +58,9 @@ export const fetchAllChats = async (req, res) => {
     console.log(error);
   }
 };
-export const creatGroup = async (req, res) => {
+
+
+const createGroup = async (req, res) => {
   const { chatName, users } = req.body;
   if (!chatName || !users) {
     res.status(400).json({ message: 'Please fill the fields' });
@@ -81,7 +85,9 @@ export const creatGroup = async (req, res) => {
     res.sendStatus(500);
   }
 };
-export const renameGroup = async (req, res) => {
+
+
+const renameGroup = async (req, res) => {
   const { chatId, chatName } = req.body;
   if (!chatId || !chatName)
     res.status(400).send('Provide Chat id and Chat name');
@@ -98,7 +104,9 @@ export const renameGroup = async (req, res) => {
     console.log(error);
   }
 };
-export const addToGroup = async (req, res) => {
+
+
+const addToGroup = async (req, res) => {
   const { userId, chatId } = req.body;
   const existing = await Chat.findOne({ _id: chatId });
   if (!existing.users.includes(userId)) {
@@ -113,7 +121,9 @@ export const addToGroup = async (req, res) => {
     res.status(409).send('user already exists');
   }
 };
-export const removeFromGroup = async (req, res) => {
+
+
+const removeFromGroup = async (req, res) => {
   const { userId, chatId } = req.body;
   const existing = await Chat.findOne({ _id: chatId });
   if (existing.users.includes(userId)) {
@@ -128,4 +138,7 @@ export const removeFromGroup = async (req, res) => {
     res.status(409).send('user doesnt exists');
   }
 };
-export const removeContact = async (req, res) => {};
+
+ const removeContact = async (req, res) => {};
+
+module.exports = {accessChats,addToGroup,removeFromGroup,renameGroup , createGroup ,fetchAllChats};

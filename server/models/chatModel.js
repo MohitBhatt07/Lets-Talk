@@ -1,4 +1,5 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
+
 const chatSchema = mongoose.Schema(
   {
     photo: {
@@ -32,4 +33,4 @@ const chatSchema = mongoose.Schema(
   }
 );
 const chatModel = mongoose.model('Chat', chatSchema);
-export default chatModel;
+module.exports = chatModel;

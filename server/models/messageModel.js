@@ -1,4 +1,5 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
+
 const messageSchema = mongoose.Schema(
   {
     sender: {
@@ -19,4 +20,5 @@ const messageSchema = mongoose.Schema(
   }
 );
 const messageModel = mongoose.model("Message", messageSchema);
-export default messageModel;
+
+module.exports = messageModel;
