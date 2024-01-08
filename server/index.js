@@ -1,5 +1,4 @@
 const express = require('express');
-const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const bodyParser= require('body-parser');
 const cors = require('cors');
@@ -9,12 +8,15 @@ const chatRoutes = require('./routes/chat.js');
 const mongoDBConnect = require('./mongodb/connection.js');
 // import * as Server from 'socket.io';
 const {Server} = require('socket.io');
+const dotenv = require('dotenv');
+dotenv.config();
+
 const app = express();
 const corsConfig = {
   origin: process.env.BASE_URL,
   credentials: true,
 };
-const PORT=process.env.PORT || 8000
+const PORT =process.env.PORT || 8000
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,14 +24,14 @@ app.use(cors(corsConfig));
 
 app.use('/', userRoutes);
 app.use('/api/chat', chatRoutes);
-app.use('/api/message', messageRoutes);
+// app.use('/api/message', messageRoutes);
 mongoose.set('strictQuery', false);
 mongoDBConnect();
 
 const server = app.listen(PORT, () => {
   console.log(`Server Listening at PORT - ${PORT}`);
 });
-const io = new Server.Server(server, {
+const io = new Server(server, {
   pingTimeout: 60000,
   cors: {
     origin: 'http://localhost:3000',
