@@ -8,10 +8,6 @@ import { BsEmojiLaughing, BsEmojiExpressionless } from "react-icons/bs";
 import { toast } from "react-toastify";
 import { validUser } from "../apis/auth";
 
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-import HttpsOutlinedIcon from "@mui/icons-material/HttpsOutlined";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 const defaultData = {
   email: "",
@@ -59,7 +55,7 @@ function Login() {
   }, []);
   return (
     <>
-      <div className="bg-[#121418] w-[100vw] h-[100vh] flex justify-center items-center">
+      <div className="bg-[#323bad] w-[100vw] h-[100vh] flex justify-center items-center">
         <div className="bg-gray-200 w-[90%] md:w-1/2 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md p-10 bg-opacity-10 border border-gray-100  relative">
           <div className="">
             <h3 className=" text-[25px] font-bold tracking-wider text-[#fff]">
@@ -76,58 +72,14 @@ function Login() {
             </p>
           </div>
 
-          {/* <form className="w-full max-w-md mx-auto" onSubmit={formSubmit}>
-            <div className="relative flex items-center mt-8">
-              <span className="absolute">
-                <EmailOutlinedIcon className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500" />
-              </span>
-
-              <input
-                type="email"
-                className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                placeholder="Email address"
-                name="email"
-                onChange={handleOnChange}
-              />
-            </div>
-
-            <div className="relative flex items-center mt-4">
-              <span className="absolute">
-                <HttpsOutlinedIcon className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500" />
-              </span>
-
-              <input
-                type={showPass ? "text" : "password"}
-                className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                placeholder="Password"
-                onChange={handleOnChange}
-                name="password"
-              />
-              <div
-                className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5 "
-                onClick={() => setShowPass(!showPass)}
-              >
-                {showPass ? <VisibilityIcon /> : <VisibilityOffIcon />}
-              </div>
-            </div>
-
-            <div className="mt-6">
-              <button
-                type="submit"
-                className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
-              >
-                Sign in
-              </button>
-            </div>
-          </form> */}
 
           <form
-            className="flex flex-col gap-y-3 mt-[12%]"
+            className="flex flex-col gap-y-5 mt-[12%]"
             onSubmit={formSubmit}
           >
             <div>
               <input
-                className="w-[100%] sm:w-[80%] bg-[#222222] h-[50px] pl-3 text-[#ffff]"
+                className="w-[100%] rounded-md sm:w-[90%] bg-[#fffdfd] h-[50px] pl-3 text-[#000]"
                 onChange={handleOnChange}
                 name="email"
                 type="text"
@@ -138,7 +90,7 @@ function Login() {
             </div>
             <div className="relative">
               <input
-                className="w-[100%] sm:w-[80%] bg-[#222222] h-[50px] pl-3 text-[#ffff]"
+                className="w-[100%] sm:w-[90%] rounded-md bg-[#fffdfd] h-[50px] pl-3 text-[#000]"
                 onChange={handleOnChange}
                 type={showPass ? "text" : "password"}
                 name="password"
@@ -150,7 +102,7 @@ function Login() {
                 <button type="button">
                   <BsEmojiLaughing
                     onClick={() => setShowPass(!showPass)}
-                    className="text-[#fff] absolute top-3 right-5 sm:right-24 w-[30px] h-[25px]"
+                    className="text-[#000] absolute top-3 right-5 sm:right-24 w-[30px] h-[25px]"
                   />
                 </button>
               ) : (
@@ -158,7 +110,7 @@ function Login() {
                   {" "}
                   <BsEmojiExpressionless
                     onClick={() => setShowPass(!showPass)}
-                    className="text-[#fff] absolute top-3 right-5 sm:right-24 w-[30px] h-[25px]"
+                    className="text-[#000] absolute top-3 right-5 sm:right-24 w-[30px] h-[25px]"
                   />
                 </button>
               )}
@@ -167,43 +119,26 @@ function Login() {
             <button
               style={{
                 background:
-                  "linear-gradient(90deg, rgba(0,195,154,1) 0%, rgba(224,205,115,1) 100%)",
+                  "linear-gradient(to left bottom, rgb(232, 121, 249), rgb(229, 229, 229), rgb(253, 224, 71))",
               }}
-              className="w-[100%]  sm:w-[80%] h-[50px] font-bold text-[#121418] tracking-wide text-[17px] relative"
+              className="w-[100%]  sm:w-[90%] h-[50px] font-bold text-[#121418] tracking-wide text-[17px] relative"
               type="submit"
             >
               <div
                 style={{ display: isLoading ? "" : "none" }}
-                className="absolute -top-[53px] left-[27%] sm:-top-[53px] sm:left-[56px]"
+                className=" flex justify-center items-center"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150">
-                  <path
-                    fill="none"
-                    stroke="#FF156D"
-                    stroke-width="15"
-                    stroke-linecap="round"
-                    stroke-dasharray="300 385"
-                    stroke-dashoffset="0"
-                    d="M275 75c0 31-27 50-50 50-58 0-92-100-150-100-28 0-50 22-50 50s23 50 50 50c58 0 92-100 150-100 24 0 50 19 50 50Z"
-                  >
-                    <animate
-                      attributeName="stroke-dashoffset"
-                      calcMode="spline"
-                      dur="2"
-                      values="685;-685"
-                      keySplines="0 0 1 1"
-                      repeatCount="indefinite"
-                    ></animate>
-                  </path>
+                <svg
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  className="mr-2 animate-spin"
+                  viewBox="0 0 1792 1792"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M526 1394q0 53-37.5 90.5t-90.5 37.5q-52 0-90-38t-38-90q0-53 37.5-90.5t90.5-37.5 90.5 37.5 37.5 90.5zm498 206q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-704-704q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm1202 498q0 52-38 90t-90 38q-53 0-90.5-37.5t-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-964-996q0 66-47 113t-113 47-113-47-47-113 47-113 113-47 113 47 47 113zm1170 498q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-640-704q0 80-56 136t-136 56-136-56-56-136 56-136 136-56 136 56 56 136zm530 206q0 93-66 158.5t-158 65.5q-93 0-158.5-65.5t-65.5-158.5q0-92 65.5-158t158.5-66q92 0 158 66t66 158z"></path>
                 </svg>
-                {/* <lottie-player
-                  src="https://assets2.lottiefiles.com/packages/lf20_h9kds1my.json"
-                  background="transparent"
-                  speed="1"
-                  style={{ width: "200px", height: "160px" }}
-                  loop
-                  autoplay
-                ></lottie-player> */}
+                Loading
               </div>
               <p
                 style={{ display: isLoading ? "none" : "block" }}
