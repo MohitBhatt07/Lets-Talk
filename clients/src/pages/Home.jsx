@@ -67,18 +67,14 @@ function Home() {
 
   return (
     <>
-
-      <div className="bg-[#282C35!] scrollbar-hide z-10 h-[100vh]  lg:w-[90%] lg:mx-auto overflow-y-hidden shadow-2xl">
-
-        <div className='flex'>
+      <div className="pt-4 scrollbar-hide z-10 h-[100vh]  lg:w-[90%] lg:mx-auto overflow-y-hidden shadow-2xl">
+        <div className='flex gap-3'>
           {
             !showProfile ?
-              <div className="md:flex md:flex-col min-w-[360px] h-[100vh] md:h-[98.6vh] bg-[#ffff] relative">
-
+              <div className="md:flex rounded-xl md:flex-col min-w-[360px] h-[95vh]  bg-[#ffff] relative">
                 <div className='h-[61px] px-4'>
                   <div className='flex'>
                     <a className='flex items-center relative  -top-4 block h-[90px]' href='/'>
-
                       <h3 className='text-[20px] text-[#1f2228] font-body font-extrabold tracking-wider'>Messages</h3>
                     </a>
                   </div>
@@ -152,7 +148,7 @@ function Home() {
 
               </div> : <Profile className="min-w-[100%] sm:min-w-[360px] h-[100vh] bg-[#fafafa] shodow-xl relative" />
           }
-          <Chat className="chat-page relative lg:w-[100%] h-[100vh] bg-[#fafafa]" />
+          <Chat className="chat-page relative lg:w-[100%] h-[95vh] rounded-xl bg-[#fafafa]" />
         </div>
       </div >
 

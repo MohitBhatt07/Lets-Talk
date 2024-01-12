@@ -9,6 +9,7 @@ import io from "socket.io-client"
 import "./home.css"
 import { fetchChats, setNotifications } from '../redux/chatsSlice';
 import Loading from '../components/ui/Loading';
+import SendIcon from "@mui/icons-material/Send";
 import data from '@emoji-mart/data'
 import Picker from '@emoji-mart/react'
 import { getChatName } from '../utils/logics';
@@ -102,11 +103,11 @@ function Chat(props) {
       {
         activeChat ?
           <div className={props.className}>
-            <div className='flex justify-between items-center px-5 bg-[#ffff] w-[100%]'>
+            <div className='flex justify-between rounded-xl items-center py-2 px-5 bg-[#ffff] w-[100%]'>
               <div className='flex items-center gap-x-[10px]'>
                 <div className='flex flex-col items-start justify-center'>
                   <h5 className='text-[17px] text-[#2b2e33] font-bold tracking-wide'>{getChatName(activeChat, activeUser)}</h5>
-                  {/* <p className='text-[11px] text-[#aabac8]'>Last seen 5 min ago</p> */}
+                  
                 </div>
               </div>
               <div>
@@ -123,11 +124,11 @@ function Chat(props) {
 
               </div>
             </div>
-            <div className='absolute left-[31%] bottom-[8%]'>
+            <div className='absolute w-[100%] left-[6%] bottom-[8%]'>
               {
                 showPicker && <Picker data={data} onEmojiSelect={(e) => setMessage(message + e.native)} />
               }
-              <div className='border-[1px] border-[#aabac8] px-6 py-3 w-[360px] sm:w-[400px] md:w-[350px] h-[50px] lg:w-[400px] rounded-t-[10px]'>
+              <div className='border-[1px] border-[#aabac8] px-6 py-3 w-[90%]  h-[50px] rounded-t-[10px]'>
 
                 <form onKeyDown={(e) => keyDownFunction(e)} onSubmit={(e) => e.preventDefault()}>
                   <input onChange={(e) => {
@@ -152,16 +153,22 @@ function Chat(props) {
 
               </div>
 
-              <div className='border-x-[1px] border-b-[1px] bg-[#f8f9fa] border-[#aabac8] px-6 py-3 w-[360px] sm:w-[400px] md:w-[350px] lg:w-[400px] rounded-b-[10px] h-[50px]'>
-                {/* {
-                  isTyping ? <div>Loading</div> : ""
-                } */}
+              <div className='border-x-[1px] border-b-[1px] bg-[#f8f9fa] border-[#aabac8] px-6 py-3 w-[90%] rounded-b-[10px] h-[50px]'>
+
                 <div className='flex justify-between items-start'>
 
                   <div className='cursor-pointer' onClick={() => setShowPicker(!showPicker)}>
 
                     {showPicker ? <BsFillEmojiSmileFill className='w-[20px] h-[20px] text-[#ffb02e] border-[black]' /> : <BsEmojiSmile className='w-[20px] h-[20px]' />}
                   </div>
+                  <button
+                    type="button"
+                    onClick={(e) => sendMessage(e)}
+                    className="inline-flex gap-2 items-center justify-center rounded-lg px-4 py-3 transition duration-500 ease-in-out text-white bg-orange-500 hover:bg-orange-400 focus:outline-none"
+                  >
+                    <span className="font-bold">Send</span>
+                    <SendIcon />
+                  </button>
                   <button onClick={(e) => keyDownFunction(e)} className='bg-[#f8f9fa] border-[2px] border-[#d4d4d4] text-[14px] px-2 py-[3px] text-[#9e9e9e] font-medium rounded-[7px] -mt-1'>Send</button>
                 </div>
               </div>
