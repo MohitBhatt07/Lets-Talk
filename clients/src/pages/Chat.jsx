@@ -9,7 +9,7 @@ import io from "socket.io-client"
 import "./home.css"
 import { fetchChats, setNotifications } from '../redux/chatsSlice';
 import Loading from '../components/ui/Loading';
-import SendIcon from "@mui/icons-material/Send";
+import { IoSend } from "react-icons/io5";
 import data from '@emoji-mart/data'
 import Picker from '@emoji-mart/react'
 import { getChatName } from '../utils/logics';
@@ -95,7 +95,7 @@ function Chat(props) {
   }, [])
   if (loading) {
     return <div className={props.className}>
-      <Loading />
+      <Loading /> 
     </div>
   }
   return (
@@ -124,7 +124,7 @@ function Chat(props) {
 
               </div>
             </div>
-            <div className='absolute w-[100%] left-[6%] bottom-[8%]'>
+            <div className='absolute w-[100%] left-[6%] bottom-[2%]'>
               {
                 showPicker && <Picker data={data} onEmojiSelect={(e) => setMessage(message + e.native)} />
               }
@@ -153,9 +153,9 @@ function Chat(props) {
 
               </div>
 
-              <div className='border-x-[1px] border-b-[1px] bg-[#f8f9fa] border-[#aabac8] px-6 py-3 w-[90%] rounded-b-[10px] h-[50px]'>
+              <div className='border-x-[1px] border-b-[1px] bg-[#f8f9fa] border-[#aabac8] px-6 py-1 w-[90%] rounded-b-[10px] h-[50px]'>
 
-                <div className='flex justify-between items-start'>
+                <div className='flex justify-between items-center'>
 
                   <div className='cursor-pointer' onClick={() => setShowPicker(!showPicker)}>
 
@@ -163,14 +163,14 @@ function Chat(props) {
                   </div>
                   <button
                     type="button"
-                    onClick={(e) => sendMessage(e)}
-                    className="inline-flex gap-2 items-center justify-center rounded-lg px-4 py-3 transition duration-500 ease-in-out text-white bg-orange-500 hover:bg-orange-400 focus:outline-none"
+                    onClick={(e) => keyDownFunction(e)}
+                    className="inline-flex gap-2 items-center justify-center rounded-lg px-2 py-2 transition duration-500 ease-in-out text-white bg-orange-500 hover:bg-orange-400 focus:outline-none"
                   >
                     <span className="font-bold">Send</span>
-                    <SendIcon />
+                    <IoSend />
                   </button>
-                  <button onClick={(e) => keyDownFunction(e)} className='bg-[#f8f9fa] border-[2px] border-[#d4d4d4] text-[14px] px-2 py-[3px] text-[#9e9e9e] font-medium rounded-[7px] -mt-1'>Send</button>
-                </div>
+                 {/* <button onClick={(e) => keyDownFunction(e)} className='bg-[#f8f9fa] border-[2px] border-[#d4d4d4] text-[14px] px-2 py-[3px] text-[#9e9e9e] font-medium rounded-[7px] -mt-1'>Send</button> */}
+                </div> 
               </div>
             </div>
           </div> :
