@@ -67,7 +67,7 @@ function Home() {
 
   return (
     <>
-      <div className="pt-4 scrollbar-hide z-10 h-[100vh]  lg:w-[90%] lg:mx-auto overflow-y-hidden shadow-2xl">
+      <div className="pt-4 scrollbar-hide z-10 h-[100vh]  overflow-x-hidden w-[95%] lg:mx-auto overflow-y-hidden shadow-2xl">
         <div className='flex gap-3'>
           {
             !showProfile ?
