@@ -3,24 +3,25 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { searchUsers, validUser } from '../apis/auth'
 import { setActiveUser } from '../redux/activeUserSlice'
-import { RiNotificationBadgeFill } from "react-icons/ri"
 import { BsSearch } from "react-icons/bs"
 import { BiNotification } from "react-icons/bi"
 import { IoIosArrowDown } from "react-icons/io"
 import { setShowNotifications, setShowProfile } from '../redux/profileSlice'
 import Chat from './Chat'
 import Profile from "../components/Profile"
+
 import { acessCreate } from "../apis/chat.js"
 import "./home.css"
 import { fetchChats, setNotifications } from '../redux/chatsSlice'
+import { MdOutlineNotificationsActive } from "react-icons/md"
 import { getSender } from '../utils/logics'
 import { setActiveChat } from '../redux/chatsSlice'
 import Group from '../components/Group'
 import Contacts from '../components/Contacts'
 import { Effect } from "react-notification-badge"
-// import NotificationBadge from 'react-notification-badge/lib/components/NotificationBadge';
 import NotificationBadge from 'react-notification-badge';
 import Search from '../components/group/Search'
+import { IoNotificationsSharp } from 'react-icons/io5'
 function Home() {
   const dispatch = useDispatch()
   const { showProfile, showNotifications } = useSelector((state) => state.profile)
@@ -67,26 +68,27 @@ function Home() {
 
   return (
     <>
-      <div className="pt-4 scrollbar-hide z-10 h-[100vh]  overflow-x-hidden w-[95%] lg:mx-auto overflow-y-hidden shadow-2xl">
+      <div className="pt-4 scrollbar-hide z-10 h-[100vh] overflow-x-hidden w-[95%] lg:mx-auto overflow-y-hidden shadow-2xl">
         <div className='flex gap-3'>
           {
             !showProfile ?
-              <div className="md:flex rounded-xl md:flex-col min-w-[360px] h-[95vh]  bg-[#ffff] relative">
+              <div className="md:flex rounded-xl md:flex-col min-w-[360px] h-[95vh]  bg-[#ffff] relative">  
                 <div className='h-[61px] px-4'>
                   <div className='flex'>
-                    <a className='flex items-center relative  -top-4 block h-[90px]' href='/'>
+                    <a className='flex items-center relative  -top-4  h-[90px]' href='/'>
                       <h3 className='text-[20px] text-[#1f2228] font-body font-extrabold tracking-wider'>Messages</h3>
                     </a>
                   </div>
                   <div className='absolute top-4 right-5 flex items-center gap-x-3'>
                     <button onClick={() => dispatch(setShowNotifications(!showNotifications))}>
                       <NotificationBadge
+
                         count={notifications.length}
                         effect={Effect.SCALE}
                         style={{ width: "15px", height: "15px", fontSize: "9px", padding: "4px 2px 2px 2px" }}
                       />
                       {
-                        showNotifications ? <RiNotificationBadgeFill style={{ width: "25px", height: "25px", color: "#319268" }} /> : <BiNotification style={{ color: "#319268", width: "25px", height: "25px" }} />
+                        showNotifications ? <IoNotificationsSharp style={{ width: "25px", height: "25px", color: "#0000FF" }} /> : <MdOutlineNotificationsActive style={{ color: "#0000FF", width: "25px", height: "25px" }} />
                       }
 
                     </button>
@@ -146,7 +148,7 @@ function Home() {
                 </div>
 
 
-              </div> : <Profile className="min-w-[100%] sm:min-w-[360px] h-[100vh] bg-[#fafafa] shodow-xl relative" />
+              </div> : <Profile className="" />
           }
           <Chat className="chat-page relative lg:w-[100%] h-[95vh] rounded-xl bg-[#fafafa]" />
         </div>

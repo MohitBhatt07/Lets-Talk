@@ -103,7 +103,7 @@ function Chat(props) {
       {
         activeChat ?
           <div className={props.className}>
-            <div className='flex justify-between rounded-xl items-center py-2 px-5 bg-[#ffff] w-[100%]'>
+            <div className='flex justify-between rounded-xl border-gray-300 border-b-2 items-center py-2 px-5 bg-[#ffff] w-[100%]'>
               <div className='flex items-center gap-x-[10px]'>
                 <div className='flex flex-col items-start justify-center'>
                   <h5 className='text-[17px] text-[#2b2e33] font-bold tracking-wide'>{getChatName(activeChat, activeUser)}</h5>
@@ -114,7 +114,7 @@ function Chat(props) {
                 <Model />
               </div>
             </div>
-            <div className='scrollbar-hide w-[100%] h-[70vh] md:h-[66vh] lg:h-[69vh] flex flex-col overflow-y-scroll p-4'>
+            <div className='scrollbar-hide w-[100%] h-[65vh] flex flex-col overflow-y-scroll p-4'>
               <MessageHistory typing={isTyping} messages={messages} />
               <div className='ml-7 -mb-10'>
                 {
@@ -169,7 +169,7 @@ function Chat(props) {
                     <span className="font-bold">Send</span>
                     <IoSend />
                   </button>
-                 {/* <button onClick={(e) => keyDownFunction(e)} className='bg-[#f8f9fa] border-[2px] border-[#d4d4d4] text-[14px] px-2 py-[3px] text-[#9e9e9e] font-medium rounded-[7px] -mt-1'>Send</button> */}
+                 
                 </div> 
               </div>
             </div>
@@ -178,7 +178,7 @@ function Chat(props) {
             <div className='relative'>
               <div className='absolute top-[40vh] left-[44%] flex flex-col items-center justify-center gap-y-3'>
                 <img className='w-[50px] h-[50px] rounded-[25px]' alt="User profile" src={activeUser.profilePic} />
-                <h3 className='text-[#111b21] text-[20px] font-medium tracking-wider'>Welcome <span className='text-[#166e48] text-[19px] font-bold'> {activeUser.name}</span></h3>
+                <h3 className='text-2xl font-medium tracking-wider'>Welcome <span className='text-[#eb9f58] text-4xl font-bold'> {activeUser.name}</span></h3>
               </div>
             </div>
           </div>
