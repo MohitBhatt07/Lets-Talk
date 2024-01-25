@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { searchUsers, validUser } from '../apis/auth'
 import { setActiveUser } from '../redux/activeUserSlice'
 import { BsSearch } from "react-icons/bs"
-import { BiNotification } from "react-icons/bi"
 import { IoIosArrowDown } from "react-icons/io"
 import { setShowNotifications, setShowProfile } from '../redux/profileSlice'
 import Chat from './Chat'
@@ -18,8 +17,6 @@ import { getSender } from '../utils/logics'
 import { setActiveChat } from '../redux/chatsSlice'
 import Group from '../components/Group'
 import Contacts from '../components/Contacts'
-import { Effect } from "react-notification-badge"
-import NotificationBadge from 'react-notification-badge';
 import Search from '../components/group/Search'
 import { IoNotificationsSharp } from 'react-icons/io5'
 function Home() {
@@ -81,12 +78,7 @@ function Home() {
                   </div>
                   <div className='absolute top-4 right-5 flex items-center gap-x-3'>
                     <button onClick={() => dispatch(setShowNotifications(!showNotifications))}>
-                      <NotificationBadge
-
-                        count={notifications.length}
-                        effect={Effect.SCALE}
-                        style={{ width: "15px", height: "15px", fontSize: "9px", padding: "4px 2px 2px 2px" }}
-                      />
+                      <div className="bg-red-500 text-white rounded-full px-2 py-1 inline-flex items-center justify-center">{notifications.length()}</div>
                       {
                         showNotifications ? <IoNotificationsSharp style={{ width: "25px", height: "25px", color: "#0000FF" }} /> : <MdOutlineNotificationsActive style={{ color: "#0000FF", width: "25px", height: "25px" }} />
                       }
