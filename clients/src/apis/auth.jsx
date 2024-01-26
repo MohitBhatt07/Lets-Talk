@@ -1,17 +1,16 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
-const url = "http://localhost:8000"
+
 const API = (token) =>
   axios.create({
-    baseURL: url,
+    baseURL: import.meta.env.VITE_APP_SERVER_URL,
     headers: { Authorization: token },
   });
-// const url = process.env.REACT_APP_SERVER_URL;
-
 
 export const loginUser = async (body) => {
+  console.log(import.meta.env.VITE_APP_SERVER_URL);
   try {
-    return await axios.post(`${url}/auth/login`, body);
+    return await axios.post(`${import.meta.env.VITE_APP_SERVER_URL}/auth/login`, body);
   } catch (error) {
     console.log('error in loginuser api');
   }
@@ -19,7 +18,7 @@ export const loginUser = async (body) => {
 
 export const registerUser = async (body) => {
   try {
-    return await axios.post(`${url}/auth/register`, body);
+    return await axios.post(`${import.meta.env.VITE_APP_SERVER_URL}/auth/register`, body);
   } catch (error) {
     console.log(error);
   }

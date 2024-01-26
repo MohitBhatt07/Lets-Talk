@@ -1,25 +1,14 @@
 import React, { useState } from 'react'
-import Box from '@mui/material/Box';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { RxCross2 } from "react-icons/rx"
 import { useEffect } from 'react';
-import { searchUsers } from '../apis/auth';
+import { searchUsers } from '../apis/auth.jsx';
 import { addToGroup, removeUser, renameGroup } from '../apis/chat';
 import { fetchChats } from '../redux/chatsSlice';
 import Search from './group/Search';
 import { getChatName, getChatPhoto } from '../utils/logics';
 import ModalSheet from './ui/ModalSheet';
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: "fit-content",
-  bgcolor: 'background.paper',
-  boxShadow: 24,
-  p: 2,
-};
+
 function Model(props) {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch()

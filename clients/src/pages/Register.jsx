@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { BsEmojiLaughing, BsEmojiExpressionless } from "react-icons/bs";
 import { toast } from "react-toastify";
-import { registerUser, validUser } from "../apis/auth";
+import { registerUser, validUser } from "../apis/auth.jsx";
 
 const defaultData = {
   firstname: "",

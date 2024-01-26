@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setShowProfile } from '../redux/profileSlice'
 import { IoMdLogOut } from "react-icons/io"
 import InputEdit from './profile/InputEdit'
-import { updateUser } from '../apis/auth'
+import { updateUser } from '../apis/auth.jsx'
 import { toast } from 'react-toastify'
 import { setUserNameAndBio } from '../redux/activeUserSlice'
 import  ModalSheet from './ui/ModalSheet.jsx';

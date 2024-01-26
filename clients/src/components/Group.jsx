@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { BsPlusLg } from 'react-icons/bs';
-import { Modal, Box } from '@mui/material';
-import { searchUsers } from '../apis/auth';
+import { searchUsers } from '../apis/auth.jsx';
 import { RxCross2 } from 'react-icons/rx';
 import { useEffect } from 'react';
 import { createGroup } from '../apis/chat';

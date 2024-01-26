@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import ScrollableFeed from "react-scrollable-feed"
+// import ScrollableFeed from "react-scrollable-feed"
 import { isSameSender, isSameSenderMargin, isSameUser, isLastMessage } from '../utils/logics'
 import { Tooltip } from "@chakra-ui/tooltip";
 import { Avatar } from "@chakra-ui/avatar";
@@ -10,7 +10,7 @@ function MessageHistory({ messages }) {
 
   return (
     <>
-      <ScrollableFeed className='scrollbar-hide mt-[30%]'>
+      <div className='overflow-scroll mt-[30%]'>
         {messages &&
           messages.map((m, i) => (
 
@@ -49,7 +49,7 @@ function MessageHistory({ messages }) {
           ))
         }
 
-      </ScrollableFeed >
+      </div>
     </>
   )
 }

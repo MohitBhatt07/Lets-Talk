@@ -1,8 +1,7 @@
-import Message from '../models/messageModel.js';
-import user from '../models/userModel.js';
-import Chat from '../models/chatModel.js';
+const Message = require('../models/messageModel.js');
+const Chat = require('../models/chatModel.js');
 
-export const sendMessage = async (req, res) => {
+ const sendMessage = async (req, res) => {
   const { chatId, message } = req.body;
   try {
     let msg = await Message.create({ sender: req.rootUserId, message, chatId });
@@ -27,7 +26,7 @@ export const sendMessage = async (req, res) => {
     res.status(500).json({ error: error });
   }
 };
-export const getMessages = async (req, res) => {
+const getMessages = async (req, res) => {
   const { chatId } = req.params;
   try {
     let messages = await Message.find({ chatId })
@@ -47,3 +46,5 @@ export const getMessages = async (req, res) => {
     console.log(error);
   }
 };
+
+module.exports = {getMessages,sendMessage};

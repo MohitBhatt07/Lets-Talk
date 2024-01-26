@@ -1,8 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
-
 import { useState } from "react";
-import { loginUser } from "../apis/auth";
+import { loginUser } from "../apis/auth.jsx";
 import { Link, useNavigate } from "react-router-dom";
 import { BsEmojiLaughing, BsEmojiExpressionless } from "react-icons/bs";
 import { toast } from "react-toastify";

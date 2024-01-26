@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
-import { searchUsers } from '../apis/auth';
+import { searchUsers } from '../apis/auth.jsx';
 const initialState = {
   searchResults: [],
   isLoading: false,
@@ -21,17 +21,17 @@ const searchSlice = createSlice({
   name: 'search',
   initialState,
   reducers: {},
-  extraReducers: {
-    [searchUserThunk.pending]: (state) => {
+  extraReducers: builder =>{
+    builder.addCase(searchUserThunk.pending, (state) => {
       state.isLoading = true;
-    },
-    [searchUserThunk.fulfilled]: (state, { payload }) => {
+    }).
+    addCase(searchUserThunk.fulfilled, (state, { payload }) => {
       state.searchResults = payload;
       state.isLoading = false;
-    },
-    [searchUserThunk.rejected]: (state) => {
+    })
+    .addCase(searchUserThunk.rejected , (state) => {
       state.isError = true;
-    },
+    });
   },
 });
 export default searchSlice.reducer;
