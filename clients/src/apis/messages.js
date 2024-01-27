@@ -4,6 +4,7 @@ const API = (token) =>
     baseURL: import.meta.env.VITE_APP_SERVER_URL,
     headers: { Authorization: token },
   });
+  
 export const sendMessage = async (body) => {
   try {
     const token = localStorage.getItem('userToken');
@@ -16,9 +17,9 @@ export const sendMessage = async (body) => {
 export const fetchMessages = async (id) => {
   try {
     const token = localStorage.getItem('userToken');
-
     const { data } = await API(token).get(`/api/message/${id}`);
     return data;
+
   } catch (error) {
     console.log('error in fetch Message API ' + error);
   }

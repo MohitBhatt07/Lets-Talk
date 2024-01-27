@@ -24,7 +24,7 @@ app.use(cors(corsConfig));
 
 app.use('/', userRoutes);
 app.use('/api/chat', chatRoutes);
-// app.use('/api/message', messageRoutes);
+app.use('/api/message', messageRoutes);
 mongoose.set('strictQuery', false);
 mongoDBConnect();
 

@@ -78,7 +78,7 @@ function Chat(props) {
         }
       }
       else {
-        setMessages([...messages, newMessageRecieved])
+        setMessages([...messages, newMessageRecieved]);
       }
       dispatch(fetchChats())
     })

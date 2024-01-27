@@ -59,12 +59,11 @@ function Profile(props) {
           
           <div className="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
           <p className="pt-4 text-base font-bold flex items-center justify-center gap-2 lg:justify-start">
-            <IoMailOpen className="h-4  text-green-700 pr-1"/>
+            <IoMailOpen className="h-4 text-green-700 pr-1"/>
             <span>{activeUser?.email }</span>
           </p>
         
 
-          {/* {(user.data !== currUser) &&  */}
           <div onClick={logoutUser} className='mt-2 mx-auto bg-red-700 w-fit flex hover:bg-red-900 hover:cursor-pointer text-white font-bold py-2 px-4 rounded-full'>
           <IoMdLogOut className='text-white h-[23px]' />
           <h6 className='text-[17px] text-white font-semibold'>Logout</h6>
@@ -73,7 +72,7 @@ function Profile(props) {
         </div>
       </div>
 
-      <div className="border  border-gray-400 shadow-lg rounded-xl w-full h-[80%] object-cover lg:w-2/5 z-30 animate-slide">
+      <div className="border border-gray-400 shadow-lg rounded-xl w-full h-[80%] object-cover lg:w-2/5 z-30 animate-slide">
         <img
           src={activeUser?.profilePic}
           className="rounded-none h-full object-cover lg:rounded-lg shadow-2xl hidden lg:block"
