@@ -6,12 +6,13 @@ const userRoutes = require('./routes/user.js');
 const messageRoutes = require('./routes/message.js');
 const chatRoutes = require('./routes/chat.js');
 const mongoDBConnect = require('./mongodb/connection.js');
-// import * as Server from 'socket.io';
+
 const {Server} = require('socket.io');
 const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
+
 const corsConfig = {
   origin: process.env.BASE_URL,
   credentials: true,
