@@ -59,8 +59,8 @@ function Group() {
   useEffect(() => {}, []);
   return (
     <>
-      <button
-        className="mt-1 transition duration-150 ease-in-out"
+      <div
+        className="mt-1 mb-4 transition duration-150 ease-in-out"
         onClick={handleOpen}
       >
         <div className="flex justify-start border-r-2">
@@ -68,7 +68,7 @@ function Group() {
             New Group <BsPlusLg />
           </button>
         </div>
-      </button>
+      </div>
       <ModalSheet
         open={open}
         onClose={handleClose}

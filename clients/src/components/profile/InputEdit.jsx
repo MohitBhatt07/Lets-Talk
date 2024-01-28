@@ -16,7 +16,7 @@ function InputEdit({ type, handleChange, input, handleSubmit }) {
 
             <div className='flex justify-between items-center'>
 
-              <p className='text-[14.5px] text-[#3b4a54]'>
+              <p className='text-[14.5px] font-bold text-[#3b4a54]'>
 
                 {input}
               </p>
