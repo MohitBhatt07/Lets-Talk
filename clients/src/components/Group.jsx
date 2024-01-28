@@ -60,11 +60,11 @@ function Group() {
   return (
     <>
       <button
-        className="mt-1  transition duration-150 ease-in-out"
+        className="mt-1 transition duration-150 ease-in-out"
         onClick={handleOpen}
       >
         <div className="flex justify-start border-r-2">
-          <button className="text-[11px] font-normal tracking-wide flex items-center gap-x-1 bg-[#f6f6f6] text-[#1f2228] py-1 -mb-7 mt-2  px-2">
+          <button className="text-[11px] font-normal tracking-wide flex items-center gap-x-1 bg-orange-200 rounded-lg text-[#1f2228] py-1 -mb-7 mt-2  px-2">
             New Group <BsPlusLg />
           </button>
         </div>
@@ -125,7 +125,7 @@ function Group() {
             <div className="flex justify-end mt-3">
               <button
                 onClick={handleSubmit}
-                className="bg-[#0086ea] text-[#fff] text-[15px] font-medium px-2 py-1 tracking-wide"
+                className="bg-[#0086ea] rounded-lg text-[#fff] text-[15px] font-medium px-2 py-1 tracking-wide"
                 type="submit"
               >
                 Create

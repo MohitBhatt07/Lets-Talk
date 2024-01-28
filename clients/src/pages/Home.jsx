@@ -77,8 +77,8 @@ function Home() {
                     </a>
                   </div>
                   <div className='absolute top-4 right-5 flex items-center gap-x-3'>
-                    <button onClick={() => dispatch(setShowNotifications(!showNotifications))}>
-                      <div className="bg-red-500 text-white rounded-full px-2 py-1 inline-flex items-center justify-center">{notifications.length}</div>
+                    <button className='relative w-5' onClick={() => dispatch(setShowNotifications(!showNotifications))}>
+                      <div className="bg-red-500 w-4 h-4 absolute top-0 left-3 text-white text-xs  rounded-full ">{notifications.length}</div>
                       {
                         showNotifications ? <IoNotificationsSharp style={{ width: "25px", height: "25px", color: "#0000FF" }} /> : <MdOutlineNotificationsActive style={{ color: "#0000FF", width: "25px", height: "25px" }} />
                       }
