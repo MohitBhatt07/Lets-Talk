@@ -13,15 +13,26 @@ dotenv.config();
 
 const app = express();
 
-const corsConfig = {
-  origin: process.env.BASE_URL,
-  credentials: true,
-};
+const allowedOrigin = process.env.BASE_URL;
+app.use(cors({
+  origin : (origin ,callback)=>{
+    if(allowedOrigin.includes(origin)){
+      console.log(origin ,allowedOrigin);
+      callback(null,true);
+    }
+    else{
+      callback(new Error("Not allowed by CORS"))
+    }
+  },
+  credentials : true,
+  methods : ["GET", "POST", "PUT", "DELETE"],
+}));
+
 const PORT =process.env.PORT || 8000
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors(corsConfig));
+
 
 app.use('/', userRoutes);
 app.use('/api/chat', chatRoutes);
