@@ -54,8 +54,8 @@ function Login() {
   }, []);
   return (
     <>
-      <div className="bg-[#323bad] w-[100vw] h-[100vh] flex justify-center items-center">
-        <div className="bg-gray-200 w-[90%] md:w-1/2 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md p-10 bg-opacity-10 border border-gray-100  relative">
+      <div className="bg-[#4651e0] w-[100vw] h-[100vh] flex justify-center items-center">
+        <div className="bg-gray-100 w-[90%]  md:w-1/2 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md p-10 bg-opacity-25 shadow-slate-400 shadow-lg  relative">
           <div className="">
             <h3 className=" text-[25px] font-bold tracking-wider text-[#fff]">
               Login

@@ -128,7 +128,7 @@ function Model(props) {
             onClose={handleClose}
             >
             <div>
-              <div className='w-[250px] h-[250px] flex flex-col items-center justify-center -mt-4'>
+              <div className='w-[250px] bg-orange-200  rounded-md h-[250px] flex flex-col items-center justify-center -mt-4'>
                 <img className='w-[70px] h-[70px] rounded-[35px] shadow-lg' src={getChatPhoto(activeChat, activeUser)} alt="" />
                 <h2 className='text-[17px] tracking-wider font-semibold text-[#313439]'>{getChatName(activeChat, activeUser)}</h2>
 

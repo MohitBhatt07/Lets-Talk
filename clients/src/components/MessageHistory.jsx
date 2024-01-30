@@ -31,7 +31,7 @@ function MessageHistory({ messages }) {
                   </Tooltip>
 
                 )}
-              <span className='tracking-wider text-[15px]  font-medium'
+              <span className='tracking-wide text-[15px]  font-medium'
                 style={{
                   backgroundColor: `${m.sender._id === activeUser.id ? "#fa9746" : "#f0f0f0"
                     }`,
