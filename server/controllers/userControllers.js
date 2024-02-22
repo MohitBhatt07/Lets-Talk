@@ -97,6 +97,7 @@ const googleAuth = async (req, res) => {
 const logout = (req, res) => {
   req.rootUser.tokens = req.rootUser.tokens.filter((e) => e.token != req.token);
 };
+
 const searchUsers = async (req, res) => {
   const search = req.query.search
     ? {

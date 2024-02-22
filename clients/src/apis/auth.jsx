@@ -8,7 +8,7 @@ const API = (token) =>
   });
 
 export const loginUser = async (body) => {
-  console.log(import.meta.env.VITE_APP_SERVER_URL);
+  
   try {
     return await axios.post(`${import.meta.env.VITE_APP_SERVER_URL}/auth/login`, body);
   } catch (error) {

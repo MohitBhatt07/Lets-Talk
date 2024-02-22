@@ -14,21 +14,26 @@ dotenv.config();
 const app = express();
 
 const allowedOrigin = process.env.BASE_URL;
-app.use(cors({
-  origin : (origin ,callback)=>{
-    if(allowedOrigin.includes(origin)){
-      console.log(origin ,allowedOrigin);
-      callback(null,true);
-    }
-    else{
-      callback(new Error("Not allowed by CORS"))
-    }
-  },
-  credentials : true,
-  methods : ["GET", "POST", "PUT", "DELETE"],
-}));
+const corsConfig = {
+  origin: process.env.BASE_URL,
+  credentials: true,
+};
+app.use(cors(corsConfig));
+// app.use(cors({
+//   origin : (origin ,callback)=>{
+//     if(allowedOrigin.includes(origin)){
+//       console.log(origin ,allowedOrigin);
+//       callback(null,true);
+//     }
+//     else{
+//       callback(new Error("Not allowed by CORS"))
+//     }
+//   },
+//   credentials : true,
+//   methods : ["GET", "POST", "PUT", "DELETE"],
+// }));
 
-const PORT =process.env.PORT || 8000
+const PORT = process.env.PORT || 8000
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -46,7 +51,7 @@ const server = app.listen(PORT, () => {
 const io = new Server(server, {
   pingTimeout: 60000,
   cors: {
-    origin: 'http://localhost:3000',
+    origin: 'http://localhost:5173',
   },
 });
 io.on('connection', (socket) => {

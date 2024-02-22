@@ -4,8 +4,7 @@ const user = require('../models/userModel.js');
 
 const Auth = async (req, res, next) => {
   try {
-    let token = req.headers.authorization.split(' ')[0]; //when using browser this line
-    // let token = req.headers.authorization.split(' ')[1]; //when using postman this line
+    let token = req.headers.authorization.split(' ')[0]; 
     if (token.length < 500) {
       const verifiedUser = jwt.verify(token, process.env.SECRET);
       const rootUser = await user
@@ -26,7 +25,6 @@ const Auth = async (req, res, next) => {
     }
     next();
   } catch (error) {
-    // console.log(error);
     res.json({ error: 'Invalid Token' });
   }
 };

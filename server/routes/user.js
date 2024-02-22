@@ -3,6 +3,9 @@ const Auth = require('../middlewares/user.js');
 const router = express.Router();
 const {register, login, validUser, logout, googleAuth, searchUsers, getUserById, updateInfo} =require('../controllers/userControllers.js');
 
+router.get('/' ,(req,res)=>{
+  res.send('Welcome to server!');
+})
 router.post('/auth/register', register);
 router.post('/auth/login', login);
 router.get('/auth/valid', Auth, validUser);
