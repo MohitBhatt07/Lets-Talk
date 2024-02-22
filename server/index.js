@@ -14,24 +14,24 @@ dotenv.config();
 const app = express();
 
 const allowedOrigin = process.env.BASE_URL;
-const corsConfig = {
-  origin: allowedOrigin,
-  credentials: true,
-};
-app.use(cors(corsConfig));
-// app.use(cors({
-//   origin : (origin ,callback)=>{
-//     if(allowedOrigin.includes(origin)){
-//       console.log(origin ,allowedOrigin);
-//       callback(null,true);
-//     }
-//     else{
-//       callback(new Error("Not allowed by CORS"))
-//     }
-//   },
-//   credentials : true,
-//   methods : ["GET", "POST", "PUT", "DELETE"],
-// }));
+// const corsConfig = {
+//   origin: allowedOrigin,
+//   credentials: true,
+// };
+// app.use(cors(corsConfig));
+app.use(cors({
+  origin : (origin ,callback)=>{
+    if(allowedOrigin.includes(origin)){
+      console.log(origin ,allowedOrigin);
+      callback(null,true);
+    }
+    else{
+      callback(new Error("Not allowed by CORS"))
+    }
+  },
+  credentials : true,
+  methods : ["GET", "POST", "PUT", "DELETE"],
+}));
 
 const PORT = process.env.PORT || 8000
 
