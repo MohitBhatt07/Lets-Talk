@@ -15,7 +15,7 @@ const app = express();
 
 const allowedOrigin = process.env.BASE_URL;
 const corsConfig = {
-  origin: process.env.BASE_URL,
+  origin: allowedOrigin,
   credentials: true,
 };
 app.use(cors(corsConfig));
@@ -51,7 +51,7 @@ const server = app.listen(PORT, () => {
 const io = new Server(server, {
   pingTimeout: 60000,
   cors: {
-    origin: 'http://localhost:5173',
+    origin: allowedOrigin,
   },
 });
 io.on('connection', (socket) => {
